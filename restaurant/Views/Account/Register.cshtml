@@ -1,0 +1,44 @@
+﻿@using restaurant.ViewModels;
+@model RegisterViewModel;
+@{
+    ViewData["Title"] = "Cree un compte";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="card">
+
+        <img src="~/images/eclipseKitchen.png" alt="Logo">
+
+        <form class="form" asp-action="Register" method="post">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+         
+            <input type="text" asp-for="FirstName" name="FirstName" placeholder="Nom">
+            <input type="text" asp-for="LastName" name="LastName" placeholder="Prenom">
+            <input type="email" asp-for="Email" name="Email" placeholder="Email">
+            <input type="tel" asp-for="PhoneNumber" name="PhoneNumber" placeholder="Numero de telephone">
+            <input type="text" asp-for="City" name="City" placeholder="Ville">
+            <input type="text" asp-for="Adresse" name="Adresse" placeholder="Adresse">
+            <input type="password" asp-for="Password" name="Password" placeholder="Mot de passe">
+            <input type="password" asp-for="ConfirmPassword" name="ConfirmPassword" placeholder="Confirmer votre mot de passe">
+
+           
+            <button type="submit">Register</button>
+
+        </form>
+
+    </div>
+</body>
+</html>

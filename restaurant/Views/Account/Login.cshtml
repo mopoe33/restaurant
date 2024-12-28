@@ -1,0 +1,33 @@
+﻿@using restaurant.ViewModels;
+@model LoginViewModel;
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="card">
+
+        <img src="~/images/eclipseKitchen.png" alt="Logo">
+
+        <form class="form" asp-action="Login" method="post">
+
+            <input type="email"  asp-for="Email" name="email" placeholder="Email">
+            <input type="password" asp-for="Password"  name="password" placeholder="Mot de passe">
+            <button type="submit">Login</button>
+            <span class="error"></span>
+        </form>
+    </div>
+</body>
+</html>
