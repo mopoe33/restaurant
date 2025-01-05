@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hXVMDRpNZJuJTr1pk8kreCTKX8hBAEyTmBBVmiNTp60=",
+  "Hash": "8Wvk9NmQqrM2PTGmU1XSfmKNfE9JTRSfeuzi6o5enUE=",
   "Source": "restaurant",
   "BasePath": "_content/restaurant",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\restaurant.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\layoutDash.css",
+      "SourceId": "restaurant",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\",
+      "BasePath": "_content/restaurant",
+      "RelativePath": "css/layoutDash.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\layoutDash.css"
     },
     {
       "Identity": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\login.css",

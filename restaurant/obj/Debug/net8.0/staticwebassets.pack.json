@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\restaurant.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\layoutDash.css",
+      "PackagePath": "staticwebassets\\css\\layoutDash.css"
+    },
+    {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\login.css",
       "PackagePath": "staticwebassets\\css\\login.css"
     },

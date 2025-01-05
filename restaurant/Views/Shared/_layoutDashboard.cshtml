@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/layoutDash.css" asp-append-version="true">
+   
+    
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="~/images/eclipseKitchen.png" alt="Logo">;
+
+        </div>
+        <ul>
+            <li class="active">
+                <a href="">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Aperçu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-user"></i>
+                    <span>serveur</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-chair"></i>
+                    <span>Table</span>
+                </a>
+            </li>
+
+
+
+
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Menu</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-carrot"></i>
+                    <span>Ingredient</span>
+                </a>
+            </li>
+
+
+
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-calendar"></i>
+                    <span>Reservation</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a href="">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Commande</span>
+                </a>
+            </li>
+
+
+            <li class="logout">
+                <a href="/poste/logout.php">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Deconnecter</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main_content">
+        <div class="header_nav">
+            <div class="header_title">
+             
+
+            </div>
+            <div class="user_info">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+   
+
+    <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
+</html>

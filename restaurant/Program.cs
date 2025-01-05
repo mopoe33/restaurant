@@ -15,7 +15,7 @@ namespace restaurant
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<AppDbContext>(options => 
-            options.UseSqlServer(builder.Configuration.GetConnectionString("gestionAeroportContextConnection")));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("ContextConnection")));
 
             builder.Services.AddIdentity<Users, IdentityRole>(options =>
             {
