@@ -1,0 +1,26 @@
+﻿@model IEnumerable<restaurant.Models.Table>
+
+@{
+    ViewData["Title"] = "ListeTable";
+    Layout = "~/Views/Shared/_layoutUsers.cshtml";
+}
+
+<div class="content-main">
+    <div class="tables">
+        @foreach (var item in Model)
+        {
+            <div class="table-card">
+                <div>
+                <h2>Table @item.Id</h2>
+                <p>Nombre de personne:@item.PeopleNumber</p>
+                <p>Etat:@item.Status</p>
+            </div>
+                @if (@item.Status.Equals("Disponible")){
+            <div><button><a href="">Reserve</a></button></div>
+                }
+
+        </div>
+        }
+
+    </div>
+</div>

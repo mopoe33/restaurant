@@ -155,6 +155,85 @@ namespace restaurant.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("restaurant.Models.Ingredient", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Quantity")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateOnly>("expirationDate")
+                        .HasColumnType("date");
+
+                    b.Property<double>("prixUt")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Ingredients");
+                });
+
+            modelBuilder.Entity("restaurant.Models.Plat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.PrimitiveCollection<string>("IngredientIds")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Plats");
+                });
+
+            modelBuilder.Entity("restaurant.Models.PlatIngredient", b =>
+                {
+                    b.Property<int>("PlatId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IngredientId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Quantity")
+                        .HasColumnType("float");
+
+                    b.HasKey("PlatId", "IngredientId");
+
+                    b.HasIndex("IngredientId");
+
+                    b.ToTable("PlatIngredients");
+                });
+
             modelBuilder.Entity("restaurant.Models.Serveur", b =>
                 {
                     b.Property<int>("Id")
@@ -180,6 +259,26 @@ namespace restaurant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Serveurs");
+                });
+
+            modelBuilder.Entity("restaurant.Models.Table", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("PeopleNumber")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tables");
                 });
 
             modelBuilder.Entity("restaurant.Models.Users", b =>
@@ -311,6 +410,35 @@ namespace restaurant.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("restaurant.Models.PlatIngredient", b =>
+                {
+                    b.HasOne("restaurant.Models.Ingredient", "Ingredient")
+                        .WithMany("PlatIngredients")
+                        .HasForeignKey("IngredientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("restaurant.Models.Plat", "Plat")
+                        .WithMany("PlatIngredients")
+                        .HasForeignKey("PlatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Ingredient");
+
+                    b.Navigation("Plat");
+                });
+
+            modelBuilder.Entity("restaurant.Models.Ingredient", b =>
+                {
+                    b.Navigation("PlatIngredients");
+                });
+
+            modelBuilder.Entity("restaurant.Models.Plat", b =>
+                {
+                    b.Navigation("PlatIngredients");
                 });
 #pragma warning restore 612, 618
         }

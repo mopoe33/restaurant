@@ -1,0 +1,10 @@
+﻿.content {
+    height: 800px;
+    padding: 0px;
+    background-color: transparent;
+}
+
+table {
+    width: 100%;
+    border-collapse:unset !important;
+}

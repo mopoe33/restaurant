@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
 }
 
 <h1>Edit</h1>
@@ -41,9 +42,9 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <button style="background-color:#ff914d"><a style="color:white" asp-action="Index">Back to List</a></button>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<script src="~/js/main.js"></script>
+
+

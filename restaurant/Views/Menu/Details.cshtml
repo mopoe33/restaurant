@@ -1,0 +1,45 @@
+﻿@model restaurant.Models.Plat
+
+@{
+    ViewData["Title"] = "DetailsPlat";
+    Layout = "~/Views/Shared/_layoutUsers.cshtml";
+}
+<div class="product-page">
+    <div class="product-container">
+        <div class="product-image">
+            <img src="~/@Model.ImagePath" alt="Pizza Fruit de mer">
+        </div>
+        <div class="product-info">
+            <h1>@Html.DisplayFor(model => model.Name)</h1>
+            <p class="product-description">@Html.DisplayFor(model => model.Description)</p>
+
+            <h3>Ingredients:</h3>
+            <ul>
+                @if (Model.PlatIngredients != null && Model.PlatIngredients.Any())
+                {
+                    <ul class="ingredient-list">
+                        @foreach (var platIngredient in Model.PlatIngredients)
+                        {
+                            <li>
+                                @platIngredient.Ingredient.Name
+
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span>No ingredients assigned</span>
+                }
+            </ul>
+
+            <div class="product-price">
+                <span>@Html.DisplayFor(model => model.Price)DH</span>
+            </div>
+
+            <button class="add-to-cart">
+                <a href="#">Ajouter au panier</a>
+            </button>
+        </div>
+    </div>
+</div>

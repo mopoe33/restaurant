@@ -1,0 +1,58 @@
+﻿@model restaurant.Models.Plat
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Nom</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label">Prix</label>
+                <input asp-for="Price" class="form-control"  />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="IngredientIds">Ingredients</label>
+                @if (ViewData["Ingredients"] != null)
+                {
+                    <select asp-for="IngredientIds" asp-items="@(ViewData["Ingredients"] as SelectList)" multiple="multiple" id="ingredient-select"  class="form-control">
+                    </select>
+                }
+                else
+                {
+                    <span>No ingredients available</span>
+                }
+                <span asp-validation-for="IngredientIds" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ImagePath" class="control-label">Image</label>
+                <input asp-for="ImagePath" type="file" name="file" class="form-control" required />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ajouter" class="btn btn-primary" style="background-color:#ff914d" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <button style="background-color:#ff914d"><a style="color:white" asp-action="Index">Back to List</a></button>
+</div>
+
+<script src="~/js/main.js"></script>
+

@@ -19,7 +19,7 @@ body {
     left: 0;
     bottom: 0;
     padding: 0 1.3rem;
-    background-color: white;
+    background-color: #ff914d;
     position: sticky;
     overflow: hidden;
 }
@@ -57,15 +57,15 @@ ul {
     }
 
         ul li:hover, .active {
-            background-color: #ff914d;
+            background-color: white;
         }
 
             ul li.active a, ul li.active i, ul li:hover a, ul li:hover i {
-                color: white;
+                color: #ff914d;
             }
 
     ul a {
-        color: #6f6f6f;
+        color: white;
         text-decoration: none;
         font-size: 18px;
         display: flex;

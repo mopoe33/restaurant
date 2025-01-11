@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Users> SignInManager
+@inject UserManager<Users> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,13 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="~/css/layoutDash.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/@(ViewData["Title"]).css" asp-append-version="true">
+
    
     
 </head>
 <body>
     <div class="sidebar">
         <div class="logo">
-            <img src="~/images/eclipseKitchen.png" alt="Logo">;
+            <img src="~/images/eclipseKitchen1.png" alt="Logo">
 
         </div>
         <ul>
@@ -25,14 +32,14 @@
             </li>
 
             <li>
-                <a href="">
+                <a asp-controller="Serveurs" asp-action="Index">
                     <i class="fa-solid fa-user"></i>
-                    <span>serveur</span>
+                    <span>Serveur</span>
                 </a>
             </li>
 
             <li>
-                <a href="">
+                <a asp-controller="Tables" asp-action="Index">
                     <i class="fa-solid fa-chair"></i>
                     <span>Table</span>
                 </a>
@@ -42,14 +49,14 @@
 
 
             <li>
-                <a href="">
+                <a asp-controller="Plats" asp-action="Index">
                     <i class="fa-solid fa-list"></i>
-                    <span>Menu</span>
+                    <span>Plat</span>
                 </a>
             </li>
 
             <li>
-                <a href="">
+                <a asp-controller="Ingredients" asp-action="Index">
                     <i class="fa-solid fa-carrot"></i>
                     <span>Ingredient</span>
                 </a>
@@ -74,7 +81,7 @@
 
 
             <li class="logout">
-                <a href="/poste/logout.php">
+                <a href="">
 
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Deconnecter</span>
@@ -86,8 +93,7 @@
     <div class="main_content">
         <div class="header_nav">
             <div class="header_title">
-             
-
+                <span class="headerPageTitle"></span>
             </div>
             <div class="user_info">
                 <span></span>

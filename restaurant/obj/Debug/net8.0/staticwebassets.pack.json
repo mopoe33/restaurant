@@ -5,6 +5,38 @@
       "PackagePath": "staticwebassets\\restaurant.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Create.css",
+      "PackagePath": "staticwebassets\\css\\Create.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Details.css",
+      "PackagePath": "staticwebassets\\css\\Details.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\DetailsPlat.css",
+      "PackagePath": "staticwebassets\\css\\DetailsPlat.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Edit.css",
+      "PackagePath": "staticwebassets\\css\\Edit.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Index.css",
+      "PackagePath": "staticwebassets\\css\\Index.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\ListeTable.css",
+      "PackagePath": "staticwebassets\\css\\ListeTable.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Menu.css",
+      "PackagePath": "staticwebassets\\css\\Menu.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\StyleMain.css",
+      "PackagePath": "staticwebassets\\css\\StyleMain.css"
+    },
+    {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\layoutDash.css",
       "PackagePath": "staticwebassets\\css\\layoutDash.css"
     },
@@ -27,6 +59,26 @@
     {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\images\\eclipseKitchen.png",
       "PackagePath": "staticwebassets\\images\\eclipseKitchen.png"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\images\\eclipseKitchen1.png",
+      "PackagePath": "staticwebassets\\images\\eclipseKitchen1.png"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\images\\main.jpg",
+      "PackagePath": "staticwebassets\\images\\main.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\images\\pizzamarg.jpeg",
+      "PackagePath": "staticwebassets\\images\\pizzamarg.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\images\\saladecesar.jpg",
+      "PackagePath": "staticwebassets\\images\\saladecesar.jpg"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\js\\site.js",

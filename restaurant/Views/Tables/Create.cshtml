@@ -1,0 +1,37 @@
+﻿@model restaurant.Models.Table
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Table</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+             @* <div class="form-group">
+                 <label asp-for="Status" class="control-label"></label>
+                 <input asp-for="Status" class="form-control" />
+                 <span asp-validation-for="Status" class="text-danger"></span>
+             </div> *@
+            <div class="form-group">
+                <label asp-for="PeopleNumber" class="control-label">Nombre de Personne</label>
+                <input asp-for="PeopleNumber" class="form-control" />
+                <span asp-validation-for="PeopleNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ajouter" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <button style="background-color:#ff914d"><a style="color:white" asp-action="Index">Back to List</a></button>
+</div>
+
+<script src="~/js/main.js"></script>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<restaurant.Models.Plat>
+
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "~/Views/Shared/_layoutUsers.cshtml";
+}
+
+<div class="content-main">
+<div class="menu">
+@foreach (var item in Model) {
+    <div class="plat-card">
+
+        <div>
+            <img src="~/@item.ImagePath" alt="">
+        </div>
+        <div>
+            <h2>@item.Name</h2>
+            <p>@item.Description</p>
+        </div>
+        
+            <div>
+                <button><a asp-action="Details" asp-route-id="@item.Id">Details</a></button>
+                    <button><a asp-action="Details" asp-route-id="@item.Id">Ajouter au panier</a></button>
+                </div>
+
+    </div>
+}
+</div>
+</div>

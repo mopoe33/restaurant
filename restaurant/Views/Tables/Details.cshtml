@@ -1,0 +1,35 @@
+﻿@model restaurant.Models.Table
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h1>Details</h1>
+
+<div class="details">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>ID</strong></td>
+                <td>@Html.DisplayFor(model => model.Id)</td>
+            </tr>
+            <tr>
+                <td><strong>Status</strong></td>
+                <td>@Html.DisplayFor(model => model.Status)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="btn-action">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-edit">Edit</a>
+    <a asp-action="Index" class="btn btn-back">Back to List</a>
+</div>
+
+<script src="~/js/main.js"></script>
