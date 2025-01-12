@@ -19,6 +19,13 @@ namespace restaurant.Data
 
         public DbSet<PlatIngredient>  PlatIngredients { get; set; }
 
+        public DbSet<Panier> Paniers { get; set; }
+
+        public DbSet<Commande> Commandes { get; set; }
+        public DbSet<LigneCommande> LigneCommandes { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

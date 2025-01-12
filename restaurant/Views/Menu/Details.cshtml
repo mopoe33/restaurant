@@ -38,7 +38,8 @@
             </div>
 
             <button class="add-to-cart">
-                <a href="#">Ajouter au panier</a>
+                <a asp-controller="Panier" asp-action="Add" asp-route-id="@Model.Id">Ajouter au panier</a>
+                
             </button>
         </div>
     </div>

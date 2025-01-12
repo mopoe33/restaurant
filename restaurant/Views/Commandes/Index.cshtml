@@ -1,4 +1,4 @@
-﻿@model IEnumerable<restaurant.Models.Serveur>
+﻿@model IEnumerable<restaurant.Models.Commande>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,55 +6,51 @@
 }
 
 
-<p>
-    <a asp-action="Create">Ajouter un serveur</a>
-</p>
-<div class="table_content">
 <table class="table">
     <thead>
         <tr>
             <th>
-                Nom
+                @Html.DisplayName("Id")
             </th>
             <th>
-                Prenom
+                @Html.DisplayName("Date Commande")
             </th>
             <th>
-                Heure Debut
+                @Html.DisplayName("Total")
             </th>
             <th>
-                Heure Fin
+                @Html.DisplayName("Statut")
             </th>
-                <th>
-                    Action
-                </th>
-            <th></th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+
+    @foreach (var item in Model) {
+                <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.firstName)
+                    @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.lastName)
+                    @Html.DisplayFor(modelItem => item.DateCommande)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.timeStart)
+                    @Html.DisplayFor(modelItem => item.Total) DH
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.timeEnd)
+                    @Html.DisplayFor(modelItem => item.Statut)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
-        </tr>
-}
+            </tr>
+
+    }
     </tbody>
 </table>
-</div>
 
 <script src="~/js/main.js"></script>

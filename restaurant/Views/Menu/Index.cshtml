@@ -20,7 +20,7 @@
         
             <div>
                 <button><a asp-action="Details" asp-route-id="@item.Id">Details</a></button>
-                    <button><a asp-action="Details" asp-route-id="@item.Id">Ajouter au panier</a></button>
+                    <button><a  asp-controller="Panier"   asp-action="Add" asp-route-id="@item.Id">Ajouter au panier</a></button>
                 </div>
 
     </div>

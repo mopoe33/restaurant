@@ -1,0 +1,109 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
+}
+
+<h1 class="title">Details Commande</h1>
+
+<div class="details">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Info Client</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align:center"><strong>Nom</strong></td>
+                <td style="text-align:center">@Model.User.FirstName @Model.User.LastName</td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><strong>Numero de Telephone</strong></td>
+                <td style="text-align:center">@Model.User.PhoneNumber</td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><strong>Ville</strong></td>
+                <td style="text-align:center">@Model.User.City</td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><strong>Adresse</strong></td>
+                <td style="text-align:center">@Model.User.Adresse</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Commande Info</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align:center"><strong>Commande Id</strong></td>
+                <td style="text-align:center">@Model.Commande.Id</td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><strong>Commande Date</strong></td>
+                <td style="text-align:center">@Model.Commande.DateCommande</td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><strong>Commande Total</strong></td>
+                <td style="text-align:center">@Model.Commande.Total DH</td>
+            </tr>
+            <tr>
+                <td style="text-align:center"><strong>Commande Statut</strong></td>
+                <td style="text-align:center">@Model.Commande.Statut</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+    <table >
+        <thead>
+            <tr>
+                <th colspan="5">Commande Details</th>
+        </thead>
+       
+        <thead>
+            <tr>
+                <th style="text-align:center">Plat</th>
+                <th style ="text-align:center">Description</th>
+                <th style="text-align:center">Prix</th>
+                <th style="text-align:center">Quantite</th>
+                <th style="text-align:center">Total</th>
+            </tr>
+        </thead>
+        <hr />
+        <tbody >
+            @foreach (var ligne in Model.LigneCommandes)
+            {
+            <tr>
+                    <td style="text-align:center">@ligne.Plat.Name</td>
+                    <td style="text-align:center">@ligne.Plat.Description</td> 
+                    <td style="text-align:center">@ligne.Plat.Price DH</td>
+                    <td style="text-align:center">@ligne.LigneCommande.Quantite</td>
+                    <td style="text-align:center">@ligne.LigneCommande.Total DH</td>
+            </tr>
+            }
+       </tbody>
+    </table>
+
+</div>
+    <div class="btn-action">
+    <a asp-action="Edit" asp-route-id="@Model?.Commande.Id" class="btn btn-edit">Edit</a>
+        <a asp-action="Index" class="btn btn-back">Back to List</a>
+    </div>
+   
+
+    <script src="~/js/main.js"></script>
+
+
+            

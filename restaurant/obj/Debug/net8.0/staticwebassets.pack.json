@@ -33,6 +33,10 @@
       "PackagePath": "staticwebassets\\css\\Menu.css"
     },
     {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\PlatPanier.css",
+      "PackagePath": "staticwebassets\\css\\PlatPanier.css"
+    },
+    {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\StyleMain.css",
       "PackagePath": "staticwebassets\\css\\StyleMain.css"
     },

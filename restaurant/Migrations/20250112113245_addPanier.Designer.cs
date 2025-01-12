@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using restaurant.Data;
 
@@ -11,9 +12,11 @@ using restaurant.Data;
 namespace restaurant.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250112113245_addPanier")]
+    partial class addPanier
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,33 +158,6 @@ namespace restaurant.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("restaurant.Models.Commande", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ClientId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCommande")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Statut")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Commandes");
-                });
-
             modelBuilder.Entity("restaurant.Models.Ingredient", b =>
                 {
                     b.Property<int>("Id")
@@ -210,33 +186,6 @@ namespace restaurant.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Ingredients");
-                });
-
-            modelBuilder.Entity("restaurant.Models.LigneCommande", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CommandeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PlatId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantite")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Total")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CommandeId");
-
-                    b.ToTable("LigneCommandes");
                 });
 
             modelBuilder.Entity("restaurant.Models.Panier", b =>
@@ -492,15 +441,6 @@ namespace restaurant.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("restaurant.Models.LigneCommande", b =>
-                {
-                    b.HasOne("restaurant.Models.Commande", null)
-                        .WithMany("LignesCommande")
-                        .HasForeignKey("CommandeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("restaurant.Models.PlatIngredient", b =>
                 {
                     b.HasOne("restaurant.Models.Ingredient", "Ingredient")
@@ -518,11 +458,6 @@ namespace restaurant.Migrations
                     b.Navigation("Ingredient");
 
                     b.Navigation("Plat");
-                });
-
-            modelBuilder.Entity("restaurant.Models.Commande", b =>
-                {
-                    b.Navigation("LignesCommande");
                 });
 
             modelBuilder.Entity("restaurant.Models.Ingredient", b =>

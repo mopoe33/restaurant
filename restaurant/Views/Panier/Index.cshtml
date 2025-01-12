@@ -1,0 +1,56 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "PlatPanier";
+    Layout = "~/Views/Shared/_layoutUsers.cshtml";
+}
+
+<div class="content-main">
+    <div class="cart">
+        <h1>Votre Panier</h1>
+
+        <div class="cart-items">
+            @{
+                double totalPanier = 0;
+                
+            }
+        @foreach (var item in Model)
+        {
+            totalPanier += item.Total;
+                <div class="cart-item">
+                    <div class="item-info">
+                        <img src="~/@item.ImagePath" alt="">
+                        <div class="details">
+                            <h2>@item.PlatName</h2>
+                            <p>@item.PlatDescription</p>
+                            <span class="price">Prix: @item.PlatPrice DH</span>
+                        </div>
+                    </div>
+
+                    <div class="item-actions">
+
+
+                        <div class="action-buttons">
+                            <form asp-controller="Panier" asp-action="UpdateQuantite" asp-route-id="@item.Id" method="get">
+                                <input type="number" min="1" name="Quantite" value="@item.Quantity">
+                                <button type="submit" class="apply">Appliquer</button>
+                            </form>
+
+                            
+                            <form asp-controller="Panier" asp-action="Delete" asp-route-id="@item.Id" method="post">
+                                <button type="submit" class="delete">Supprimer</button>
+                            </form>
+                           
+                        </div>
+
+                        <span class="total">Total:<span> @item.Total </span>DH</span>
+                    </div>
+                </div>
+        }
+    </div>
+
+    <div class="cart-summary">
+        <p class="cart-total">Total Panier: <strong>@totalPanier DH</strong></p>
+            <button class="btn btn-checkout"><a asp-controller="Commandes" asp-action="Add">Commande</a></button>
+    </div>
+</div>
