@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using restaurant.Data;
 
@@ -11,9 +12,11 @@ using restaurant.Data;
 namespace restaurant.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250113105034_addBookingTable")]
+    partial class addBookingTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,9 +166,6 @@ namespace restaurant.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("BookingDateEnd")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("ClientId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -177,7 +177,7 @@ namespace restaurant.Migrations
                     b.Property<int>("TableId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("bookingDateStart")
+                    b.Property<DateTime>("bookingDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("serveurId")

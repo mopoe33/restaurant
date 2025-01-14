@@ -16,7 +16,7 @@
                 <p>Etat:@item.Status</p>
             </div>
                 @if (@item.Status.Equals("Disponible")){
-            <div><button><a href="">Reserve</a></button></div>
+            <div><button><a asp-controller="Reservations" asp-action="BookTable" asp-route-id="@item.Id">Reserve</a></button></div>
                 }
 
         </div>

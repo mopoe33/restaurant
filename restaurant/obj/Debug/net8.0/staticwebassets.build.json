@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pOxXqk635MkEqQEcL+kLXVh8D8uNlT55kFYqUZo9PyE=",
+  "Hash": "2p+XLtlqiqsqXXCTwSFi48PP6zr9aRzdbW28hC3dqUY=",
   "Source": "restaurant",
   "BasePath": "_content/restaurant",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\restaurant.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\BookTable.css",
+      "SourceId": "restaurant",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\",
+      "BasePath": "_content/restaurant",
+      "RelativePath": "css/BookTable.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\BookTable.css"
     },
     {
       "Identity": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Create.css",

@@ -45,10 +45,26 @@ ul {
     }
 
 .action-buttons {
-    display :flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 10px;
-   align-items:center;
+    gap: 2rem;
 }
+
+    .action-buttons a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .action-buttons a i {
+            font-size: 22px;
+            color: #ff914d;
+        }
 
     .action-buttons button {
         background-color: #ff914d;
@@ -62,7 +78,65 @@ ul {
         .action-buttons button a {
             text-decoration: none;
             color: white;
+            display: block;
+            text-align: center;
         }
+
+
+
+
+.user-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #ff914d;
+    margin-left: -10px;
+    margin-right: 18px;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 150px;
+    z-index: 10;
+}
+
+
+    .dropdown-menu a {
+        display: block;
+        text-decoration: none;
+        color: black;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #ff914d;
+            color: white;
+        }
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a i {
+    margin-right: 10px !important;
+}
+
+.dropdown-menu a:hover i {
+    color: white;
+}
+
+.dropdown-menu a i:hover {
+    color: white !important;
+}
 
 .cart {
     padding: 20px;

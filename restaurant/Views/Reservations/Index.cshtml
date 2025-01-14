@@ -1,4 +1,4 @@
-﻿@model IEnumerable<restaurant.Models.Ingredient>
+﻿@model IEnumerable<restaurant.Models.BookingTable>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,26 +6,26 @@
 }
 
 
-<p>
-    <a asp-action="Create">Ajouter</a>
-</p>
+
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayName("Id")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                @Html.DisplayName("Numero Table")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.prixUt)
+                @Html.DisplayName("Date debut")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.expirationDate)
+                @Html.DisplayName("Date Fin")
             </th>
+            
             <th>
-                @Html.DisplayNameFor(model => model.Quantity)
+                @Html.DisplayName("Statut")
             </th>
             <th>Action</th>
         </tr>
@@ -34,19 +34,20 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.TableId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.prixUt) DH
+                @Html.DisplayFor(modelItem => item.bookingDateStart)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.expirationDate)
+                @Html.DisplayFor(modelItem => item.BookingDateEnd)
             </td>
+            
             <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
@@ -57,5 +58,4 @@
 }
     </tbody>
 </table>
-
 <script src="~/js/main.js"></script>

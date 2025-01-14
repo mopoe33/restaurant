@@ -26,8 +26,11 @@ namespace restaurant.Controllers
         }
         public async Task<IActionResult> IndexUser()
         {
-            return View("ListPlats", await _context.Tables.ToListAsync());
+            return View("ListTables", await _context.Tables.ToListAsync());
         }
+
+
+        
 
         // GET: Tables/Details/5
         public async Task<IActionResult> Details(int? id)

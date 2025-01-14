@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-
 @inject SignInManager<Users> SignInManager
 @inject UserManager<Users> UserManager
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eclipse kitchen</title>
     <link rel="stylesheet" href="~/css/StyleMain.css" asp-append-version="true">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +21,7 @@
         <div class="links">
             <ul>
                 <li><a asp-controller="Home">Accueil</a></li>
-                <li><a asp-controller="Menu" asp-action="Index" >Menu</a></li>
+                <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
                 <li><a asp-controller="Tables" asp-action="IndexUser">Table</a></li>
                 <li><a asp-controller="Contact">Contactez-nous</a></li>
             </ul>
@@ -28,16 +29,36 @@
         <div class="action-buttons">
             @if (!SignInManager.IsSignedIn(User))
             {
-                <button><a href="">Login</a></button>
-                <button><a href="">Register</a></button>
+                <div class="action-buttons">
+                <button>
+                    <a asp-controller="Account" asp-action="Login">Login</a>
+                </button>
+                <button>
+                    <a asp-controller="Account" asp-action="Register">Register</a>
+                </button>
+                </div>
+            }
+            else
+            {
+               <div class="actionLoggin">
+                <a asp-controller="Panier" asp-action="Index">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </a>
+
+                
+                <div class="dropdown">
+                    <i class="fa-solid fa-user user-icon"></i>
+                    <div class="dropdown-menu">
+                        <a asp-controller="Account" asp-action="Index"><i class="fa-solid fa-file-invoice"></i><span>Account</span></a>
+                        <a asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+                    </div>
+                </div>
+                </div>
             }
         </div>
     </div>
 
     @RenderBody();
-
-
-
 
 </body>
 </html>

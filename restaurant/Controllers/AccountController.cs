@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using restaurant.Models;
 using restaurant.ViewModels;
@@ -38,6 +39,35 @@ namespace restaurant.Controllers
             }
             return View(model);
         }
+
+
+
+
+        public async Task<IActionResult> Logout()
+        {
+           
+            await signInManager.SignOutAsync();
+
+            
+
+           
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public IActionResult Register()
         {

@@ -24,6 +24,9 @@ namespace restaurant.Data
         public DbSet<Commande> Commandes { get; set; }
         public DbSet<LigneCommande> LigneCommandes { get; set; }
 
+        public DbSet<BookingTable> BookingTables  { get; set; }
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

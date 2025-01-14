@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\restaurant.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\BookTable.css",
+      "PackagePath": "staticwebassets\\css\\BookTable.css"
+    },
+    {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Create.css",
       "PackagePath": "staticwebassets\\css\\Create.css"
     },

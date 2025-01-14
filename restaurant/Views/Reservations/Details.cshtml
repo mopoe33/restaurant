@@ -1,0 +1,85 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
+}
+
+
+
+<div class="details">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Details Reservations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Numero de Reservation</strong></td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td><strong>Date Debut</strong></td>
+                <td>@Model.bookingDateStart</td>
+            </tr>
+            <tr>
+                <td><strong>Date Fin</strong></td>
+                <td>@Model.BookingDateEnd</td>
+            </tr>
+            <tr>
+                <td><strong>Statut</strong></td>
+                <td>@Model.Status</td>
+            </tr>
+            <tr>
+                <td><strong>Numero de table</strong></td>
+                <td>@Model.TableId</td>
+            </tr>
+
+            <tr>
+                <td><strong>Nombre de personne</strong></td>
+                <td>@Model.personNumber</td>
+            </tr>
+
+            <tr>
+                <td><strong>Nom Serveur</strong></td>
+                <td>@Model.ServeurName</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Details Client</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Nom</strong></td>
+                <td>@Model.ClientName</td>
+            </tr>
+            
+            <tr>
+                <td><strong>Telephone</strong></td>
+                <td>@Model.ClientPhone</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>@Model.ClientEmail</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+</div>
+
+<div class="btn-action">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-edit">Edit</a>
+    <a asp-action="Index" class="btn btn-back">Back to List</a>
+</div>
+
+<script src="~/js/main.js"></script>
