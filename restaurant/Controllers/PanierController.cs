@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using restaurant.Models;
 
 namespace restaurant.Controllers
 {
+    [Authorize(Roles = "Client")]
     public class PanierController : Controller
     {
         private readonly AppDbContext _context;

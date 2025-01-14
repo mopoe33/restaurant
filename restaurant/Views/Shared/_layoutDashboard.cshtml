@@ -24,45 +24,47 @@
 
         </div>
         <ul>
-            <li class="active">
-                <a href="">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Aperçu</span>
-                </a>
-            </li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li class="active">
+                    <a href="">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Aperçu</span>
+                    </a>
+                </li>
 
-            <li>
-                <a asp-controller="Serveurs" asp-action="Index">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Serveur</span>
-                </a>
-            </li>
+                <li>
+                    <a asp-controller="Serveurs" asp-action="Index">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Serveur</span>
+                    </a>
+                </li>
 
-            <li>
-                <a asp-controller="Tables" asp-action="Index">
-                    <i class="fa-solid fa-chair"></i>
-                    <span>Table</span>
-                </a>
-            </li>
-
-
+                <li>
+                    <a asp-controller="Tables" asp-action="Index">
+                        <i class="fa-solid fa-chair"></i>
+                        <span>Table</span>
+                    </a>
+                </li>
 
 
-            <li>
-                <a asp-controller="Plats" asp-action="Index">
-                    <i class="fa-solid fa-list"></i>
-                    <span>Plat</span>
-                </a>
-            </li>
 
-            <li>
-                <a asp-controller="Ingredients" asp-action="Index">
+
+                <li>
+                    <a asp-controller="Plats" asp-action="Index">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Plat</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a asp-controller="Ingredients" asp-action="Index">
                     <i class="fa-solid fa-carrot"></i>
                     <span>Ingredient</span>
                 </a>
             </li>
 
-
+            }
 
             <li>
                 <a asp-controller="Reservations" asp-action="Index">
@@ -79,9 +81,16 @@
                 </a>
             </li>
 
+            <li>
+                <a asp-controller="Profils" asp-action="Edit">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profil</span>
+                </a>
+            </li>
+
 
             <li class="logout">
-                <a href="">
+                <a asp-controller="Account" asp-action="Logout">
 
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Deconnecter</span>

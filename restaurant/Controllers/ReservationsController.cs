@@ -1,4 +1,5 @@
 ﻿using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -9,11 +10,14 @@ using System.Web;
 
 namespace restaurant.Controllers
 {
+    [Authorize]
     public class ReservationsController : Controller
     {
+         
         private readonly AppDbContext _context;
        
         private readonly UserManager<Users> _userManager;
+        
 
         public ReservationsController(AppDbContext context, UserManager<Users> userManager)
         {
@@ -21,6 +25,8 @@ namespace restaurant.Controllers
             _userManager = userManager;
         }
         [HttpGet]
+
+        [Authorize(Roles = "Client")]
         public async Task<IActionResult> BookTable(int id)
         {
 
@@ -39,7 +45,7 @@ namespace restaurant.Controllers
             return NotFound();
         }
 
-
+        [Authorize(Roles = "Client")]
         [HttpPost]
         public async Task<IActionResult> BookTable(BookingTable b)
         {
@@ -103,12 +109,25 @@ namespace restaurant.Controllers
         }
 
 
+
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.BookingTables.ToListAsync());
+            var user = await _userManager.GetUserAsync(User);
+
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+                return View(await _context.BookingTables.ToArrayAsync());
+            else
+            {
+                string UserId = _userManager.GetUserId(User);
+
+                var Orders = await _context.BookingTables.Where(e => e.ClientId == UserId).ToListAsync();
+
+                return View("Index", Orders);
+            }
         }
 
-
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> Details(int id)
        {
 

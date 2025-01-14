@@ -12,6 +12,8 @@ namespace restaurant.Models
 
         public string? City { get; set; }
 
+
+
         
     }
 }

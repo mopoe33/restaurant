@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using restaurant.Data;
@@ -7,6 +8,7 @@ using System.ComponentModel.Design;
 
 namespace restaurant.Controllers
 {
+    [Authorize]
     public class CommandesController : Controller
     {
         private readonly AppDbContext _context;
@@ -18,11 +20,22 @@ namespace restaurant.Controllers
             _userManager = userManager;
         }
 
-
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Commandes.ToArrayAsync());
+            var user = await _userManager.GetUserAsync(User);
+
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+                return View(await _context.Commandes.ToArrayAsync());
+            else {
+                string UserId = _userManager.GetUserId(User);
+
+                var Orders = await _context.Commandes.Where(e => e.ClientId == UserId).ToListAsync();
+               
+                    return View("Index", Orders);
+            }
         }
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> Details(int id)
         {
             var commandeDetails = await _context.Commandes
@@ -50,7 +63,7 @@ namespace restaurant.Controllers
         }
 
 
-
+        [Authorize(Roles = "Client")]
         public async Task<IActionResult> Add()
         {
             if (User.Identity.IsAuthenticated)

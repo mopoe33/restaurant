@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,28 +12,33 @@ using restaurant.Models;
 
 namespace restaurant.Controllers
 {
+    [Authorize]
     public class TablesController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<Users> _userManager;
 
-        public TablesController(AppDbContext context)
+        public TablesController(AppDbContext context, UserManager<Users> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Tables
+        [Authorize(Roles = "Admin,Client")]
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Tables.ToListAsync());
+            var user = await _userManager.GetUserAsync(User);
+
+            if (await _userManager.IsInRoleAsync(user, "Admin"))
+                return View(await _context.Tables.ToListAsync());
+            else { return View("ListTables", await _context.Tables.ToListAsync()); }
         }
-        public async Task<IActionResult> IndexUser()
-        {
-            return View("ListTables", await _context.Tables.ToListAsync());
-        }
 
 
-        
 
+
+        [Authorize(Roles = "Admin")]
         // GET: Tables/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -51,6 +58,7 @@ namespace restaurant.Controllers
         }
 
         // GET: Tables/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -71,7 +79,7 @@ namespace restaurant.Controllers
             }
             return View(table);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Tables/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -91,6 +99,7 @@ namespace restaurant.Controllers
         // POST: Tables/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Status,PeopleNumber")] Table table)
@@ -123,6 +132,7 @@ namespace restaurant.Controllers
             return View(table);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Tables/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -142,6 +152,7 @@ namespace restaurant.Controllers
         }
 
         // POST: Tables/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
