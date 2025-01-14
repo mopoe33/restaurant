@@ -2,13 +2,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using restaurant.Data;
 using restaurant.Models;
+using UserRoles.Services;
 
 
 namespace restaurant
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ namespace restaurant
                 .AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
             var app = builder.Build();
+            await SeedService.SeedDatabase(app.Services);
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

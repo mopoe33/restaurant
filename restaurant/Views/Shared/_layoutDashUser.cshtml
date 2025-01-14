@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<Users> SignInManager
+@inject UserManager<Users> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/layoutDash.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/@(ViewData["Title"]).css" asp-append-version="true">
+
+
+
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <img src="~/images/eclipseKitchen1.png" alt="Logo">
+
+        </div>
+        <ul>
+
+            <li>
+                <a asp-controller="Reservations" asp-action="Index">
+                    <i class="fa-solid fa-calendar"></i>
+                    <span>Reservation</span>
+                </a>
+            </li>
+
+
+            <li>
+                <a asp-controller="Commandes" asp-action="Index">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Commande</span>
+                </a>
+            </li>
+
+            <li>
+                <a asp-controller="Profils" asp-action="Index">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Profil</span>
+                </a>
+            </li>
+
+
+            <li class="logout">
+                <a asp-controller="Account" asp-action="Logout">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Deconnecter</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main_content">
+        <div class="header_nav">
+            <div class="header_title">
+                <span class="headerPageTitle"></span>
+            </div>
+            <div class="user_info">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+
+</body>
+</html>

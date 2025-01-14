@@ -12,11 +12,13 @@ namespace restaurant.Controllers
 
         private SignInManager<Users> signInManager;
         private UserManager<Users> userManager;
+        private readonly RoleManager<IdentityRole> roleManager;
 
-        public AccountController(SignInManager<Users> signInManager, UserManager<Users> userManager)
+        public AccountController(SignInManager<Users> signInManager, UserManager<Users> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.signInManager = signInManager;
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
         public IActionResult Login()
         {
@@ -88,12 +90,21 @@ namespace restaurant.Controllers
                     Email = model.Email,
                     PhoneNumber = model.PhoneNumber,
                     City = model.City,
-                    Adresse = model.City
+                    Adresse = model.Adresse
                 };
 
                 var result = await userManager.CreateAsync(users, model.Password);
                 if (result.Succeeded)
                 {
+                    var roleExist = await roleManager.RoleExistsAsync("Client");
+
+                    if (!roleExist)
+                    {
+                        var role = new IdentityRole("Client");
+                        await roleManager.CreateAsync(role);
+                    }
+
+                    await userManager.AddToRoleAsync(users, "Client");
                     return RedirectToAction("Login", "Account");
                 }
                 else
