@@ -34,8 +34,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/MOUNIR/source/repos/restaurant/restaurant/Views/Apercus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBlcmN1c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/MOUNIR/source/repos/restaurant/restaurant/Views/Commandes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWFuZGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/MOUNIR/source/repos/restaurant/restaurant/Views/Commandes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWFuZGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/MOUNIR/source/repos/restaurant/restaurant/Views/Commandes/Index.cshtml]

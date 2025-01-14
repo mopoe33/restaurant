@@ -5,13 +5,21 @@
     Layout = "~/Views/Shared/_layoutDashboard.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Profil</h4>
+<h1>Profil</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
+            @if (ViewBag.Message != null)
+            {
+                <h2 class="text-danger" style="color:red">@ViewBag.Message</h2>
+            }
+            @if (ViewBag.MessageSucc != null)
+            {
+                <h2 class="text-success" style="color:green">@ViewBag.MessageSucc</h2>
+            }
+
+
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -45,6 +53,29 @@
                 <label asp-for="Adresse" class="control-label"></label>
                 <input asp-for="Adresse" class="form-control" />
                 <span asp-validation-for="Adresse" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="OldPassword"  class="control-label">Ancien Mot de passe</label>
+                <input asp-for="OldPassword" type="password" class="form-control" />
+                <span asp-validation-for="OldPassword" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="NewPassword" class="control-label">Nouveau Mot de passe</label>
+                <input asp-for="NewPassword" type="password" class="form-control" />
+                <span asp-validation-for="NewPassword" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="NewConfirmPassword" class="control-label">Confirmer le Mot de passe</label>
+                <input asp-for="NewConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="NewConfirmPassword" class="text-danger"></span>
             </div>
 
 

@@ -62,6 +62,7 @@ ul {
 
             ul li.active a, ul li.active i, ul li:hover a, ul li:hover i {
                 color: #ff914d;
+                text-decoration:none;
             }
 
     ul a {
@@ -81,6 +82,7 @@ ul {
     ul i {
         font-size: 1.1rem;
     }
+   
 
 .logout {
     position: absolute;

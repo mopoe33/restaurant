@@ -63,6 +63,119 @@ namespace restaurant.Controllers
         }
 
 
+
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var commande = await _context.Commandes.FindAsync(id);
+            if (commande == null)
+            {
+                return NotFound();
+            }
+            return View(commande);
+        }
+
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Statut")] Commande commande)
+        {
+            if (id != commande.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    
+                    var existingCommande = await _context.Commandes
+                        .Include(c => c.LignesCommande) 
+                        .FirstOrDefaultAsync(c => c.Id == id);
+
+                    if (existingCommande == null)
+                    {
+                        return NotFound();
+                    }
+
+                    
+                    if (commande.Statut == "Terminer" && existingCommande.Statut != "Terminer")
+                    {
+                        foreach (var ligneCommande in existingCommande.LignesCommande)
+                        {
+                            
+                            var plat = await _context.Plats
+                                .Include(p => p.PlatIngredients) 
+                                .ThenInclude(pi => pi.Ingredient) 
+                                .FirstOrDefaultAsync(p => p.Id == ligneCommande.PlatId);
+
+                            if (plat != null && plat.PlatIngredients != null)
+                            {
+                                foreach (var platIngredient in plat.PlatIngredients)
+                                {
+                                    
+                                    var ingredient = platIngredient.Ingredient;
+                                    if (ingredient != null)
+                                    {
+                                        ingredient.Quantity -= platIngredient.Quantity * ligneCommande.Quantite;
+
+                                        
+                                        if (ingredient.Quantity < 0)
+                                        {
+                                            ingredient.Quantity = 0;
+                                        }
+
+                                        
+                                        _context.Update(ingredient);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Update the Commande Statut
+                    existingCommande.Statut = commande.Statut;
+
+                    // Save changes to the database
+                    _context.Update(existingCommande);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+
+            return View(commande);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         [Authorize(Roles = "Client")]
         public async Task<IActionResult> Add()
         {

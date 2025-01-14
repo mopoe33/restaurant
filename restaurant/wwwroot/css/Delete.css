@@ -1,0 +1,28 @@
+﻿.container {
+    background-color: white;
+    padding: 20px;
+    margin-left: 10px;
+    border-radius: 12px;
+}
+
+table {
+    width: 50%;
+    margin-bottom: 2rem;
+    border-collapse: separate;
+    border-spacing: 1rem;
+}
+
+tr {
+    border-spacing: 2rem;
+}
+
+
+
+input {
+    width: 100px;
+    height: 40px;
+    border-radius: 12px;
+    cursor:pointer;
+    background-color:red;
+    color:white;
+}

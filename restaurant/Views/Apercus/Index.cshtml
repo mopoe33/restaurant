@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Apercu";
+    Layout = "~/Views/Shared/_layoutDashboard.cshtml";
+}
+<div class="content_page">
+    <div class="first_section">
+
+        <div class="data_summary">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <h3>Total des Commandes</h3>
+            <span>@ViewBag.TotalCommandes DH</span>
+        </div>
+
+        <div class="data_summary">
+            <i class="fa-solid fa-box"></i>
+            <h3>Nombre de Commandes</h3>
+            <span>@ViewBag.NumberCommandes</span>
+        </div>
+        <div class="data_summary">
+            <i class="fa-solid fa-calendar-days"></i>
+            <h3>Nombre de Reservations</h3>
+            <span>@ViewBag.NumberReservation</span>
+        </div>
+
+        <div class="data_summary">
+            <i class="fa-solid fa-bars"></i>
+            <h3>Nombre de Plats</h3>
+            <span>@ViewBag.NumberPlat</span>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/js/main.js"></script>

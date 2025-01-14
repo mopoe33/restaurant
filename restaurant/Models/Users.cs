@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace restaurant.Models
 {
     public class Users : IdentityUser
@@ -12,8 +13,15 @@ namespace restaurant.Models
 
         public string? City { get; set; }
 
+        [NotMapped]
+        public string? OldPassword { get; set; }
+
+        [NotMapped]
+        public string? NewPassword { get; set; }
+
+        [NotMapped]
+        public string? NewConfirmPassword { get; set; }
 
 
-        
     }
 }

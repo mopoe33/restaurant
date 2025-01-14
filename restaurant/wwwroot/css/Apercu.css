@@ -1,0 +1,42 @@
+﻿.content_page {
+    background-color: white;
+    height: auto;
+    margin-left: 10px;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+.first_section, .second_section {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.second_section {
+    margin-bottom: 20px;
+}
+
+.data_summary {
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    /* background-color: #f5f5f5; */
+    /* border: 3px solid rgb(38, 120, 212); */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .data_summary i {
+        font-size: 24px;
+        margin-bottom: 10px;
+        color: #ff914d;
+    }
+
+    .data_summary h3 {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .data_summary span {
+        font-size: 16px;
+    }

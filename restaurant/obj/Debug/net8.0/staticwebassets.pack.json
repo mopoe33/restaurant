@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\restaurant.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Apercu.css",
+      "PackagePath": "staticwebassets\\css\\Apercu.css"
+    },
+    {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\BookTable.css",
       "PackagePath": "staticwebassets\\css\\BookTable.css"
     },
     {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Create.css",
       "PackagePath": "staticwebassets\\css\\Create.css"
+    },
+    {
+      "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Delete.css",
+      "PackagePath": "staticwebassets\\css\\Delete.css"
     },
     {
       "Id": "C:\\Users\\MOUNIR\\source\\repos\\restaurant\\restaurant\\wwwroot\\css\\Details.css",

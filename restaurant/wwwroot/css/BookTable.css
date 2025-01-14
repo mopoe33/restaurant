@@ -18,9 +18,9 @@
 
 .content-main {
     position: absolute;
-    height: calc(100vh - 60px);
+    height: 800px;
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: #d3d3d3;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -45,9 +45,26 @@ ul {
     }
 
 .action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 10px;
-    gap: 3rem;
+    gap: 2rem;
 }
+
+    .action-buttons a {
+        text-decoration: none;
+        color: black;
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .action-buttons a i {
+            font-size: 22px;
+            color: #ff914d;
+        }
 
     .action-buttons button {
         background-color: #ff914d;
@@ -61,7 +78,65 @@ ul {
         .action-buttons button a {
             text-decoration: none;
             color: white;
+            display: block;
+            text-align: center;
         }
+
+
+
+
+.user-icon {
+    font-size: 22px;
+    cursor: pointer;
+    color: #ff914d;
+    margin-left: -10px;
+    margin-right: 18px;
+}
+
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    min-width: 150px;
+    z-index: 10;
+}
+
+
+    .dropdown-menu a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #ff914d;
+            color: white;
+        }
+
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a i {
+    margin-right: 10px !important;
+}
+
+.dropdown-menu a:hover i {
+    color: white;
+}
+
+.dropdown-menu a i:hover {
+    color: white !important;
+}
 
 .tables {
     padding: 10px;
@@ -70,7 +145,7 @@ ul {
 }
 h1 {
     text-align:center;
-    color: #26395d;
+    color: black;
     font-size: 28px;
     margin-bottom: 20px;
     margin-left: 10px;
@@ -155,14 +230,12 @@ input[type="submit"] {
     }
 
 a {
-    color: #ff914d;
+    color: black;
     text-decoration: none;
-    font-weight: bold;
+   
 }
 
-    a:hover {
-        text-decoration: underline;
-    }
+    
 
 @media (max-width: 768px) {
     .col-md-4 {

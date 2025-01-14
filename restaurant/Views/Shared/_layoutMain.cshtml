@@ -22,7 +22,7 @@
             <ul>
                 <li><a asp-controller="Home">Accueil</a></li>
                 <li><a asp-controller="Menu" asp-action="Index">Menu</a></li>
-                <li><a asp-controller="Tables" asp-action="IndexUser">Table</a></li>
+                <li><a asp-controller="Tables" asp-action="Index">Table</a></li>
                 <li><a asp-controller="Contact">Contactez-nous</a></li>
             </ul>
         </div>
@@ -41,15 +41,26 @@
             else
             {
                <div class="actionLoggin">
-                <a asp-controller="Panier" asp-action="Index">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-
+                    @if (!User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Panier" asp-action="Index">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </a>
+                    }
+               
                 
                 <div class="dropdown">
                     <i class="fa-solid fa-user user-icon"></i>
                     <div class="dropdown-menu">
-                        <a asp-controller="Commandes" asp-action="Index"><i class="fa-solid fa-file-invoice"></i><span>Account</span></a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-controller="Apercus" asp-action="Index"><i class="fa-solid fa-file-invoice"></i><span>Account</span></a>
+                            }
+                            else
+                            {
+                                <a asp-controller="Commandes" asp-action="Index"><i class="fa-solid fa-file-invoice"></i><span>Account</span></a>
+                            }
+                            
                         <a asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
                     </div>
                 </div>
